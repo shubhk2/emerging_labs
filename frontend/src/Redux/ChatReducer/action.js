@@ -1,6 +1,13 @@
 import axios from "axios";
 import { CREATE_CHAT_HISTORY, ERROR, LOADING, REMOVE_CHAT_HISTORY, SET_CHAT_HISTORY, SET_CURRENT_LLM_RESPONSE } from "./actionTypes"
 
+const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL_LOCAL || process.env.REACT_APP_BACKEND_BASE_URL;
+const API_KEY = process.env.REACT_APP_CODE;
+const API_HEADERS = {
+    'Content-Type': 'application/json',
+    ...(API_KEY ? { "X-API-Key": API_KEY } : {})
+};
+
 export const loading = () => {
     return {
         type: LOADING,
@@ -57,15 +64,12 @@ export const sendChatRequest = (query, chatId, historyLength, setSelectedChat) =
 
     const config = {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            "X-API-Key": process.env.REACT_APP_CODE
-        },
+        headers: API_HEADERS,
         data: JSON.stringify({
             "user_query": query,
             "raw_only": false
         }),
-        url: `${process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL_LOCAL}/copilot/ask`
+        url: `${API_BASE_URL}/copilot/ask`
     };
 
     return axios(config)

@@ -1,6 +1,10 @@
 import axios from "axios";
 import { CREATE_TAB, ERROR, GET_FINANCIAL_DATA, GET_INVESTOR_INFO_DATA, GET_OVERVIEW_DATA, GET_OVERVIEW_GRAPH_DATA, LOADING, REMOVE_ERROR, REMOVE_TAB, RESET_SEARCH_RESULTS, SEARCH_COMPANY, SET_ACTIVE_TAB, STOP_LOADING } from "./actionTypes";
 
+const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL_LOCAL || process.env.REACT_APP_BACKEND_BASE_URL;
+const API_KEY = process.env.REACT_APP_CODE;
+const API_HEADERS = API_KEY ? { "X-API-Key": API_KEY } : {};
+
 export const loading = () => {
     return {
         type: LOADING,
@@ -79,10 +83,8 @@ export const searchCompanyFunc = (searchString, limit = 10) => dispatch => {
     dispatch(loading());
     const request = {
         method: "get",
-        url: `${process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL_LOCAL}/search/companies?q=${searchString}&limit=${limit}`,
-        headers: {
-            "X-API-Key": process.env.REACT_APP_CODE
-        }
+        url: `${API_BASE_URL}/search/companies?q=${searchString}&limit=${limit}`,
+        headers: API_HEADERS
     }
     return axios(request)
         .then((res) => {
@@ -97,10 +99,8 @@ export const getCompanyDetailsById = id => dispatch => {
     dispatch(loading());
     const request = {
         method: "get",
-        url: `${process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL_LOCAL}/search/company/${id}`,
-        headers: {
-            "X-API-Key": process.env.REACT_APP_CODE
-        }
+        url: `${API_BASE_URL}/search/company/${id}`,
+        headers: API_HEADERS
     }
     return axios(request)
         .then(res => {
@@ -116,10 +116,8 @@ export const getOverviewDataFunc = id => dispatch => {
     dispatch(loading());
     const request = {
         method: "get",
-        url: `${process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL_LOCAL}/overview/company/${id}`,
-        headers: {
-            "X-API-Key": process.env.REACT_APP_CODE
-        }
+        url: `${API_BASE_URL}/overview/company/${id}`,
+        headers: API_HEADERS
     }
     return axios(request)
         .then((res) => {
@@ -134,10 +132,8 @@ export const getOverviewGraphDataFunc = (id, type = "price", period = "10yr") =>
     dispatch(loading());
     const request = {
         method: "get",
-        url: `${process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL_LOCAL}/stock_data/${type}/${period}/chart?company_number=${id}`,
-        headers: {
-            "X-API-Key": process.env.REACT_APP_CODE
-        }
+        url: `${API_BASE_URL}/stock_data/${type}/${period}/chart?company_number=${id}`,
+        headers: API_HEADERS
     }
     return axios(request)
         .then((res) => {
@@ -152,13 +148,11 @@ export const getFinancialDataFunc = (id, type, start = '', end = '') => dispatch
     dispatch(loading());
     const request = {
         method: "get",
-        url: `${process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL_LOCAL}/financials?company_number=${id}&statement_type=${type}`,
-        headers: {
-            "X-API-Key": process.env.REACT_APP_CODE
-        }
+        url: `${API_BASE_URL}/financials?company_number=${id}&statement_type=${type}`,
+        headers: API_HEADERS
     }
     if (type === 'ratio') {
-        request.url = `${process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL_LOCAL}/ratios?company_numbers=${id}`
+        request.url = `${API_BASE_URL}/ratios?company_numbers=${id}`
     }
     if (start) request.url += `&start_year=${start}`;
     if (end) request.url += `&end_year=${end}`;
@@ -179,18 +173,16 @@ export const getInvertorInfoDataFunc = (id, type, quarter = 1) => dispatch => {
     dispatch(loading());
     const config = {
         method: 'get',
-        url: `${process.env.REACT_APP_BACKEND_URL}/${type}?company_number=${id}`,
-        headers: {
-            "X-API-Key": process.env.REACT_APP_CODE
-        }
+        url: `${API_BASE_URL}/${type}?company_number=${id}`,
+        headers: API_HEADERS
     }
 
     if (type === "earning_calls") {
-        config.url = `${process.env.REACT_APP_BACKEND_URL}/earning_calls/earning_calls_files?company_number=${id}&quarter=${quarter}`
+        config.url = `${API_BASE_URL}/earning_calls/earning_calls_files?company_number=${id}&quarter=${quarter}`
     } else if (type === "quarterly") {
-        config.url = `${process.env.REACT_APP_BACKEND_URL}/quarterly_files/all?company_number=${id}`
+        config.url = `${API_BASE_URL}/quarterly_files/all?company_number=${id}`
     } else if (type === "annual") {
-        config.url = `${process.env.REACT_APP_BACKEND_URL}/annual_files/all?company_number=${id}`
+        config.url = `${API_BASE_URL}/annual_files/all?company_number=${id}`
     }
 
     return axios(config)

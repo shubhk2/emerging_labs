@@ -1,5 +1,9 @@
 import axios from "axios";
 
+const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL_LOCAL || process.env.REACT_APP_BACKEND_BASE_URL;
+const API_KEY = process.env.REACT_APP_CODE;
+const API_HEADERS = API_KEY ? { "X-API-Key": API_KEY } : {};
+
 export const loading = () => {
     return {
         type: "LOADING",
@@ -34,7 +38,7 @@ export const signout = () => {
 
 export const signinFunc = (payload) => (dispatch) => {
     dispatch(loading());
-    return axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/login`, payload)
+    return axios.post(`${API_BASE_URL}/login`, payload, { headers: API_HEADERS })
         .then((res) => {
             dispatch(signin(res.data));
         })
@@ -45,7 +49,7 @@ export const signinFunc = (payload) => (dispatch) => {
 
 export const signupFunc = (payload) => (dispatch) => {
     dispatch(loading());
-    return axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/signup`, payload)
+    return axios.post(`${API_BASE_URL}/signup`, payload, { headers: API_HEADERS })
         .then((res) => {
             dispatch(signup(res.data));
         })
