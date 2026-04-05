@@ -1,12 +1,10 @@
 import axios from "axios";
 import { CREATE_CHAT_HISTORY, ERROR, LOADING, REMOVE_CHAT_HISTORY, SET_CHAT_HISTORY, SET_CURRENT_LLM_RESPONSE } from "./actionTypes"
+import { API_BASE_URL, buildApiHeaders } from "../../Utils/apiConfig";
 
-const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL_LOCAL || process.env.REACT_APP_BACKEND_BASE_URL;
-const API_KEY = process.env.REACT_APP_CODE;
-const API_HEADERS = {
-    'Content-Type': 'application/json',
-    ...(API_KEY ? { "X-API-Key": API_KEY } : {})
-};
+const API_HEADERS = buildApiHeaders({
+    'Content-Type': 'application/json'
+});
 
 export const loading = () => {
     return {

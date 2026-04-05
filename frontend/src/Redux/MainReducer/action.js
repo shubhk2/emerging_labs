@@ -1,9 +1,8 @@
 import axios from "axios";
 import { CREATE_TAB, ERROR, GET_FINANCIAL_DATA, GET_INVESTOR_INFO_DATA, GET_OVERVIEW_DATA, GET_OVERVIEW_GRAPH_DATA, LOADING, REMOVE_ERROR, REMOVE_TAB, RESET_SEARCH_RESULTS, SEARCH_COMPANY, SET_ACTIVE_TAB, STOP_LOADING } from "./actionTypes";
+import { API_BASE_URL, buildApiHeaders } from "../../Utils/apiConfig";
 
-const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL_LOCAL || process.env.REACT_APP_BACKEND_BASE_URL;
-const API_KEY = process.env.REACT_APP_CODE;
-const API_HEADERS = API_KEY ? { "X-API-Key": API_KEY } : {};
+const API_HEADERS = buildApiHeaders();
 
 export const loading = () => {
     return {
