@@ -28,7 +28,7 @@ load_dotenv()
 
 # Import routers
 from backend.routers import stock_data, home, financials, ratios, overview, charts
-from backend.routers import search, dividend, shareholding_pattern, sql_rag
+from backend.routers import search, dividend, shareholding_pattern
 from backend.routers import annual_files, quarterly_files, earning_calls
 from backend.routers import insider_trading
 from backend.routers import pledged_data
@@ -135,7 +135,7 @@ app.include_router(ratios.router, prefix="/ratios", dependencies=[Depends(get_ap
 app.include_router(stock_data.router, prefix="/stock_data", dependencies=[Depends(get_api_key)])
 app.include_router(overview.router, prefix="/overview", dependencies=[Depends(get_api_key)])
 app.include_router(charts.router, prefix="/charts", dependencies=[Depends(get_api_key)])
-app.include_router(sql_rag.router, dependencies=[Depends(get_api_key)])  # This includes /rag_flask endpoints
+# app.include_router(sql_rag.router, dependencies=[Depends(get_api_key)])  # This includes /rag_flask endpoints
 app.include_router(search.router, dependencies=[Depends(get_api_key)])
 app.include_router(dividend.router, prefix="/dividend", dependencies=[Depends(get_api_key)])
 app.include_router(shareholding_pattern.router, prefix="/shareholding_pattern", dependencies=[Depends(get_api_key)])
