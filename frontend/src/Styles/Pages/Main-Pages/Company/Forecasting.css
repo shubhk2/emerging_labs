@@ -1,0 +1,94 @@
+.forecasting-header {
+    background-color: var(--surface-primary);
+    margin: 20px auto;
+    width: min-content;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 15px;
+    border-radius: 8px;
+    gap: 15px;
+}
+
+.forecasting-header button {
+    min-width: 120px;
+    height: 35px;
+}
+
+.forecasting-body {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    gap: 40px;
+}
+
+.forecasting-body h3 {
+    text-align: center;
+    margin-bottom: 0px;
+    font-size: 21px;
+}
+
+.forecasting-body>div {
+    background-color: var(--surface-primary);
+    padding: 15px;
+    border-radius: 8px;
+    display: grid;
+    padding-top: 50px;
+}
+
+.forecasting-body>div:nth-child(2) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+    position: relative;
+}
+
+.forecasting-body>div:nth-child(2)>* {
+    background-color: var(--surface-contrast);
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--text-contrast);
+}
+
+.forecasting-body>div:nth-child(2) p,
+.forecasting-body>div:last-child p {
+    color: var(--text-primary);
+    background-color: transparent;
+    position: absolute;
+    top: 15px;
+    padding: 0px;
+    margin: 0px;
+    left: 15px;
+}
+
+.forecasting-body>div:last-child {
+    display: grid;
+    grid-template-areas:
+        "box-1 box-3"
+        "box-2 box-3";
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.forecasting-body>div:last-child>* {
+    background-color: var(--surface-secondary);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.forecasting-container .box-1 {
+    grid-area: box-1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.forecasting-container .box-2 {
+    grid-area: box-2;
+}
+
+.forecasting-container .box-3 {
+    grid-area: box-3;
+}

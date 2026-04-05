@@ -1,0 +1,59 @@
+.financial-container {
+    width: 100%;
+    padding: 15px;
+}
+
+.financial-container .body {
+    background-color: var(--surface-primary);
+    border-radius: 8px;
+}
+
+.financial-container .body .tabs {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    gap: 15px;
+}
+
+.financial-container .body .filters {
+    padding: 15px;
+    padding-top: 0px;
+}
+
+.financial-container .body .filters>span>button {
+    width: 40px;
+}
+
+.financial-container .body .filters>span>button:first-child {
+    border-radius: 8px 0px 0px 8px;
+}
+
+.financial-container .body .filters>span>button:last-child {
+    border-radius: 0px 8px 8px 0px;
+}
+
+.financial-container .body .tabs button {
+    min-width: 100px;
+    padding: 7px 10px;
+}
+
+.financial-container .table-container {
+    width: 100%;
+    padding: 15px;
+    padding-top: 0px;
+    box-sizing: border-box;
+}
+
+.financial-container .table-container .table tbody td:first-child {
+    display: flex;
+    align-items: center;
+    gap: 2%;
+}
+
+.financial-container .table-container .table tr .table-row-checkbox {
+    width: 15px;
+    height: 15px;
+    padding: 0px;
+    margin: 0px;
+    accent-color: var(--checkbox-color, var(--text-primary));
+}

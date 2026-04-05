@@ -1,0 +1,12 @@
+.dashboard {
+    padding: 15px;
+}
+
+.asset-portfolio {
+    display: grid;
+    grid-template-columns: .7fr 1fr .7fr;
+    justify-content: space-between;
+    margin-top: 35px;
+    gap: 3%;
+    align-items: center;
+}

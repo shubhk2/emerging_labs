@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" app-color-schema="dark">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Quanvest</title>
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+</body>
+<script>
+    (function () {
+        try {
+            const stored = localStorage.getItem("theme");
+            if (stored === "light" || stored === "dark") {
+                document.documentElement.setAttribute("app-color-schema", stored);
+            } else {
+                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                const systemTheme = prefersDark ? "dark" : "light";
+                document.documentElement.setAttribute("app-color-schema", systemTheme);
+            }
+        } catch (e) {
+            console.error("Theme load error:", e);
+        }
+    })();
+</script>
+
+</html>

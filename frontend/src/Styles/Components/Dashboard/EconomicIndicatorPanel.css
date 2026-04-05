@@ -1,0 +1,6 @@
+.economic-panel-container {
+    padding: 15px;
+    background-color: var(--surface-primary);
+    border-radius: 8px;
+    height: 100%;
+}

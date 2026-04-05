@@ -1,0 +1,64 @@
+.account-container {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 40% 30%;
+    gap: 0px 8%;
+}
+
+.account-container>h1 {
+    font-size: 25px;
+    margin: 10px 0px 25px;
+    grid-column: 1 / -1;
+}
+
+.account-container h2 {
+    font-size: 16px;
+}
+
+.account-container>div>* {
+    margin-bottom: 25px;
+}
+
+.account-container .left-container>div,
+.account-container .right-container>div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--surface-primary);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.account-container .left-container>div>label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.account-container .left-container>div>label>span {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.account-container .right-container .support-section {
+    display: flex;
+    align-items: center;
+}
+
+.account-container .right-container a:hover {
+    cursor: pointer;
+}
+
+.account-container input {
+    border: none;
+    padding: 5px 10px;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.account-container input:focus {
+    box-shadow: 0 4px 6px -6px var(--surface-contrast);
+    border-bottom: 1px solid var(--border-input);
+    border-radius: 8px 8px 0px 0px;
+}

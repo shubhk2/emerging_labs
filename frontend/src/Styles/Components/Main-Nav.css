@@ -1,0 +1,50 @@
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    background-color: var(--surface-primary);
+    border-bottom: 1px solid var(--border-input);
+    position: sticky;
+    top: 47px;
+    z-index: 9;
+    gap: 20px;
+    white-space: nowrap;
+}
+
+.main-nav>* {
+    text-align: center;
+}
+
+.main-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.main-nav a {
+    text-decoration: none;
+}
+
+.main-nav button {
+    min-width: 100px;
+}
+
+.main-nav .search-company-input input {
+    border: none;
+    min-width: 150px;
+    width: max-content;
+    padding: 5px 10px;
+    transition: min-width 0.2s ease-in-out;
+}
+
+.main-nav .search-company-input input:focus {
+    min-width: 350px;
+    box-shadow: 0 4px 6px -6px var(--surface-contrast);
+    border-bottom: 1px solid var(--border-input);
+    border-radius: 8px 8px 0px 0px;
+}
+
+.main-nav .search-company-input .searched-companies-container {
+    top: calc(100% + 10px);
+    left: -100px;
+    right: -100px;
+}

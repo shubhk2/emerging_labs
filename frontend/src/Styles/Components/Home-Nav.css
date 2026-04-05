@@ -1,0 +1,84 @@
+.home-nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 36px 0fr max-content;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--surface-primary);
+    border-bottom: 1px solid var(--border-input);
+    z-index: 1000;
+    padding: 10px 15px;
+    transition: padding .25s ease-in-out;
+}
+
+.home-nav.compressed {
+    padding: 3px 15px;
+}
+
+.home-nav.compressed button {
+    padding: 3px 10px;
+}
+
+.home-nav>div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.home-nav a {
+    text-decoration: none;
+}
+
+.home-nav .logo-button {
+    width: 150px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: width .25s ease-in-out;
+}
+
+.home-nav.compressed .logo-button {
+    width: 120px !important;
+}
+
+.home-nav>div:nth-child(2) button {
+    width: 100px;
+}
+
+.home-nav .settings {
+    position: relative
+}
+
+.home-nav .settings:hover .settings-dropdown {
+    display: flex;
+    background-color: var(--surface-primary);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.home-nav .settings .settings-dropdown button {
+    padding: 0px;
+    width: 100%;
+}
+
+.home-nav .settings .settings-dropdown>* {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.home-nav .settings .settings-dropdown>*:hover {
+    background-color: var(--hover-dropdown-item);
+}
+
+.home-nav .settings .settings-dropdown {
+    display: none;
+    position: absolute;
+    z-index: 99;
+    top: 100%;
+    right: 0;
+    justify-content: center;
+    flex-direction: column;
+}

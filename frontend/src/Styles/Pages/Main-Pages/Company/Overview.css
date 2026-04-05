@@ -1,0 +1,123 @@
+.overview-container {
+    padding: 15px;
+    display: grid;
+    gap: 15px;
+    grid-template-areas:
+        "overview chart"
+        "statistics chart";
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+.overview-container .overview,
+.overview-container .chart,
+.overview-container .statistics {
+    background-color: var(--surface-primary);
+    border-radius: 8px;
+}
+
+.overview-container .overview {
+    grid-area: overview;
+    padding: 15px;
+}
+
+.overview-container h2 {
+    margin-top: 0px;
+}
+
+.overview-container .chart {
+    grid-area: chart;
+}
+
+.overview-container .chart-controls {
+    padding: 15px;
+    display: grid;
+    gap: 15px;
+    align-items: center;
+    grid-template-areas:
+        "chart-periods chart-type-select"
+        "chart-plot chart-plot";
+    grid-template-columns: fit-content max-content;
+    position: sticky;
+    top: calc(50px + 46.89px);
+}
+
+.overview-container .chart-controls .chart-periods {
+    grid-area: chart-periods;
+}
+
+.overview-container .chart-controls .chart-type-select {
+    grid-area: chart-type-select;
+}
+
+.overview-container .chart-controls .plot {
+    grid-area: chart-plot;
+}
+
+.overview-container .statistics {
+    grid-area: statistics;
+    display: grid;
+    height: 100%;
+    gap: 15px;
+    padding: 15px;
+    grid-auto-flow: dense;
+    grid-template-rows: masonry;
+    grid-template-areas:
+        "stats-heading stats-heading stats-heading"
+        "profile valuation_ttm growth"
+        "margins valuation_ntm growth"
+        "returns_5yr financial_health growth";
+}
+
+.overview-container .statistics>*>.stat-category,
+.overview-container .statistics>*>.stat-item {
+    font-size: 12px;
+}
+
+.overview-container .statistics>*>.stat-category {
+    font-weight: 600;
+    margin: 10px 0px;
+}
+
+.overview-container .statistics>*>.stat-item {
+    padding: 5px 0px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-input);
+}
+
+.overview-container .statistics>*>.stat-item:last-child {
+    border: none;
+}
+
+.overview-container .statistics .stats-heading {
+    grid-area: stats-heading;
+}
+
+.overview-container .statistics .profile {
+    grid-area: profile;
+}
+
+.overview-container .statistics .margins {
+    grid-area: margins;
+}
+
+.overview-container .statistics .returns-5yr {
+    grid-area: returns_5yr;
+}
+
+.overview-container .statistics .valuation-ttm {
+    grid-area: valuation_ttm;
+}
+
+.overview-container .statistics .valuation-ntm {
+    grid-area: valuation_ntm;
+}
+
+.overview-container .statistics .financial-health {
+    grid-area: financial_health;
+}
+
+.overview-container .statistics .growth {
+    grid-area: growth;
+}

@@ -1,0 +1,94 @@
+.app {
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 70px;
+}
+
+.button-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+    padding: 6px 10px;
+}
+
+.button-secondary:hover {
+    background-color: var(--hover-dropdown-item);
+    color: var(--text-primary);
+}
+
+.button-secondary:focus-visible {
+    outline: 2px solid var(--border-high-contrast);
+    outline-offset: 2px;
+}
+
+.main-nav a.active button,
+.home-nav a.active button,
+.financial-container .body .tabs a.active button,
+.investor-info-container .tabs a.active button,
+.overview-container .chart-period-button.active,
+.chat-ai-history button.active {
+    background-color: var(--button-green);
+    color: var(--text-contrast);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.loading {
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.recharts-default-tooltip {
+    background-color: var(--surface-primary) !important;
+    border-radius: 8px;
+}
+
+/* Theme Toggler */
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.theme-toggle-container .modes {
+    color: var(--text-primary);
+}
+
+.theme-toggler {
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 20px;
+    border-radius: 30px;
+    position: relative;
+    background: var(--border-high-contrast);
+}
+
+.theme-toggler .toggle {
+    position: absolute;
+    width: 13px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.3s ease-in-out;
+    color: var(--text-primary);
+    background: var(--surface-secondary);
+}
+
+.theme-toggler.light-theme .toggle {
+    left: 8%;
+}
+
+.theme-toggler.dark-theme .toggle {
+    left: calc(92% - 13px);
+}

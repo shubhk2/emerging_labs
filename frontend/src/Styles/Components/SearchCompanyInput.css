@@ -1,0 +1,79 @@
+.search-company-input {
+    text-align: center;
+    position: relative;
+}
+
+.search-company-input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-input);
+    border-radius: 8px;
+    background-color: var(--surface-primary);
+    color: var(--text-primary);
+    outline: none;
+    text-align: center;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 500;
+}
+
+.search-company-input input:focus {
+    border-color: var(--border-high-contrast);
+    box-shadow: 0 0 0 2px rgba(100, 100, 255, 0.2);
+}
+
+.search-company-input .searched-companies-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--surface-primary);
+    border: 1px solid var(--border-input);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+    margin-top: 4px;
+    padding: 8px 0;
+    animation: fadeIn 0.2s ease-in-out;
+    text-wrap: wrap;
+}
+
+.search-company-input .searched-companies {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-company-input .searched-companies li {
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.search-company-input .searched-companies li a {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: var(--text-primary);
+    display: block;
+    font-weight: 500;
+}
+
+.search-company-input .searched-companies li:hover {
+    background-color: var(--hover-dropdown-item);
+}
+
+.search-company-input .searched-companies li a:focus {
+    outline: none;
+    background-color: var(--active-dropdown-item);
+    border-radius: 6px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

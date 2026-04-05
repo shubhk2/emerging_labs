@@ -1,0 +1,31 @@
+.chart-container {
+    padding: 15px;
+    box-shadow: 0px 10px 10px -10px var(--table-border-color);
+}
+
+.chart-container .chart {
+    height: 500px;
+}
+
+.chart-container .chart-legend {
+    display: flex;
+    flex-direction: column;
+    /* gap: 15px; */
+}
+
+.chart-container .chart-legend div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+.chart-container .chart-legend div:hover {
+    background-color: var(--table-hover-bg);
+}
+
+.chart-container .chart-legend div>div {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}

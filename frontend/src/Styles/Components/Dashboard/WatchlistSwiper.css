@@ -1,0 +1,29 @@
+.dash-watchlist-container {
+    margin-top: 35px;
+}
+
+.dash-watchlist-container>div:first-child {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.dash-watchlist-container>div:first-child>div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dash-watchlist-container .watchlist-slide {
+    background-color: var(--surface-primary);
+    padding: 15px;
+    border-radius: 8px;
+}
+.dash-watchlist-container .watchlist-slide>div:first-child {
+    display: flex;
+    justify-content: space-between;
+}
+.dash-watchlist-container .watchlist-slide>div:nth-child(2) {
+    height: 100px;
+}

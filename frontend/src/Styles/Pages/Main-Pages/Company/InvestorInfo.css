@@ -1,0 +1,107 @@
+.investor-info-container {
+    padding: 15px;
+}
+
+.investor-info-container .body {
+    background-color: var(--surface-primary);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.investor-info-container .tabs {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.investor-info-container .body .tabs button {
+    min-width: 100px;
+    padding: 7px 10px;
+}
+
+.investor-info-container .pdf-viewer-container,
+.investor-info-container .markdown-container {
+    display: grid;
+    grid-template-columns: 15% 1fr;
+}
+
+.investor-info-container .pdf-viewer-container .pdf-side-menu,
+.investor-info-container .markdown-container .markdown-side-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.investor-info-container .pdf-viewer-container .pdf-side-menu span,
+.investor-info-container .markdown-container .markdown-side-menu span {
+    padding: 5px 10px;
+    border-radius: 8px 0px 0px 8px;
+}
+
+.investor-info-container .pdf-viewer-container .pdf-side-menu span:hover,
+.investor-info-container .markdown-container .markdown-side-menu span:hover {
+    cursor: pointer;
+    background-color: var(--menu-item-hover);
+}
+
+.investor-info-container .pdf-viewer-container .pdf-side-menu span.active,
+.investor-info-container .markdown-container .markdown-side-menu span.active {
+    background-color: var(--button-green);
+}
+
+.investor-info-container .pdf-viewer {
+    position: relative;
+    border: 1px solid var(--border-input);
+    border-radius: 0px 8px 8px 0px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    background-color: var(--surface-primary);
+    height: 100%;
+    width: 100%;
+    transition: box-shadow 0.3s ease;
+}
+
+.investor-info-container .pdf-viewer iframe {
+    width: 100%;
+    height: 70vh;
+    border: none;
+    background-color: var(--surface-base);
+}
+
+.investor-info-container .download-button {
+    position: absolute;
+    top: 3%;
+    right: 4%;
+    background-color: var(--button-green);
+    color: var(--text-contrast);
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+    z-index: 10;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.investor-info-container .download-button:hover {
+    background-color: var(--surface-green);
+}
+
+.investor-info-container .markdown-viewer {
+    border: 1px solid var(--border-input);
+    border-radius: 0px 8px 8px 0px;
+    padding: 10px;
+    text-align: justify;
+    overflow-y: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    background-color: var(--surface-base);
+    height: 70vh;
+    width: 100%;
+}
+
+.investor-info-container table td:first-child,
+.investor-info-container table th {
+    max-width: 300px;
+}

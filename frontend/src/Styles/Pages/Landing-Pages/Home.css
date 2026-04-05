@@ -1,0 +1,23 @@
+.home {
+    height: 77vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--surface-base);
+    text-align: center;
+    /* to prevent overlap with navbar */
+}
+
+.home h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    letter-spacing: 3px;
+    text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.home h1:hover {
+    transform: scale(1.05);
+    color: var(--text-green);
+}
